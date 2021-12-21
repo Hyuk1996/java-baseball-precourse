@@ -128,3 +128,23 @@
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-baseball-precourse/blob/master/LICENSE) licensed.
+
+<br>
+
+---
+
+## 구현할 기능 목록
+
+- 입력
+  - 게임 진행 중
+    - 정상적인 입력 들어오는 경우
+    - 정상적이지 않은 입력이 들어오는 경우
+  - 게임 종료
+    - 정상적인 입력이 들어오는 경우
+    - 정상적이지 않은 입력이 들어오는 경우 
+- 출력
+  - 출력 포멧에 맞게 출력
+- 기능
+  - 컴퓨터에서 난수 생성
+  - 사용자의 입력과 난수 비교
+  - 알맞은 출력값 만들기
