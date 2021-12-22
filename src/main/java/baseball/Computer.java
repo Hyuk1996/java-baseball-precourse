@@ -38,9 +38,51 @@ public class Computer {
     }
 
     public boolean compareRandomNumber(String guessNumber) {
+        int strike = 0;
+        int ball = 0;
 
+        for(int i=0; i<guessNumber.length(); ++i) {
+            char checkNum = guessNumber.charAt(i);
 
-        return true;
+            if(checkNum == randomNumber.charAt(i)) {
+                ++strike;
+                continue;
+            }
+
+            if(isBall(checkNum, i)) {
+                ++ball;
+            }
+        }
+
+        if(ball == 0 && strike == 0) {
+            System.out.println("낫싱");
+            return false;
+        } else if (strike == 3) {
+            System.out.println(strike + "스트라이크");
+            return true;
+        } else {
+            if(ball > 0) {
+                System.out.print(ball + "볼 ");
+            }
+            if(strike > 0) {
+                System.out.println(strike + "스트라이크");
+            }
+            System.out.print('\n');
+            return false;
+        }
+    }
+
+    public boolean isBall(char checkNum, int index) {
+        for(int i=0; i<randomNumber.length(); ++i) {
+            if(i == index) {
+                continue;
+            }
+
+            if(checkNum == randomNumber.charAt(i)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
