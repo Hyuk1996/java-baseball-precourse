@@ -15,8 +15,7 @@ public class Application {
                 e.printStackTrace();
                 return;
             }
-
-            System.out.println(user.getGuessNumber());
         }
+
     }
 }

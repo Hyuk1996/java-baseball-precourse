@@ -148,5 +148,6 @@ This project is [MIT](https://github.com/woowacourse/java-baseball-precourse/blo
   - 출력 포멧에 맞게 출력
 - 기능
   - 컴퓨터에서 난수 생성
+    - 난수 생성 뒤 난수의 유효성 검사
   - 사용자의 입력과 난수 비교
   - 알맞은 출력값 만들기
