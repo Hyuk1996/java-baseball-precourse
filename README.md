@@ -138,7 +138,9 @@ This project is [MIT](https://github.com/woowacourse/java-baseball-precourse/blo
 - 입력
   - 게임 진행 중
     - 정상적인 입력 들어오는 경우
+        - 입력 문자열의 길이가 3이고, 모두 숫자로 이루어져 있는 경우
     - 정상적이지 않은 입력이 들어오는 경우
+      - 정상적인 입력 외의 모든 경우
   - 게임 종료
     - 정상적인 입력이 들어오는 경우
     - 정상적이지 않은 입력이 들어오는 경우 
