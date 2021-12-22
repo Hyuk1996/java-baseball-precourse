@@ -3,7 +3,7 @@ package baseball;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Computer {
-    private int randomNumber;
+    private String randomNumber;
 
     public Computer() {
     }
@@ -12,8 +12,8 @@ public class Computer {
         int tempRandomNumber;
         do {
             tempRandomNumber = Randoms.pickNumberInRange(1, 999);
-        } while(isValidate(tempRandomNumber));
-        this.randomNumber = tempRandomNumber;
+        } while (isValidate(tempRandomNumber));
+        this.randomNumber = Integer.toString(tempRandomNumber);
     }
 
     public boolean isValidate(int randomNumber) {
@@ -23,20 +23,24 @@ public class Computer {
         randomNumber /= 10;
         int thirdNum = randomNumber;
 
-        if(firstNum == 0 || secondNum == 0 || thirdNum == 0)
+        if (firstNum == 0 || secondNum == 0 || thirdNum == 0)
             return true;
 
-        if(firstNum != secondNum && secondNum != thirdNum && thirdNum != firstNum) {
+        if (firstNum != secondNum && secondNum != thirdNum && thirdNum != firstNum) {
             return false;
         } else {
             return true;
         }
     }
 
-    public int getRandomNumber() {
+    public String getRandomNumber() {
         return randomNumber;
     }
 
+    public boolean compareRandomNumber(String guessNumber) {
 
+
+        return true;
+    }
 
 }

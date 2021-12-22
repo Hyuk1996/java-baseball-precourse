@@ -7,7 +7,10 @@ public class Application {
         //TODO: 숫자 야구 게임 구현
 
         User user = new User();
-        while(user.isGaming()) {
+        Computer computer = new Computer();
+        computer.setRandomNumber();
+
+        while (user.isGaming()) {
             System.out.print("숫자를 입력해주세요 : ");
             try {
                 user.setGuessNumber(Console.readLine());
@@ -15,6 +18,7 @@ public class Application {
                 e.printStackTrace();
                 return;
             }
+
         }
 
     }
