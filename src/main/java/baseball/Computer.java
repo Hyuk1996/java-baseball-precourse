@@ -3,38 +3,35 @@ package baseball;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Computer {
-    private String randomNumber;
+    private String randomNumbers;
 
     public Computer() {
     }
 
     public void setRandomNumber() {
+        int tempRandomNumbers = 0;
+        boolean[] checkDuplicate = new boolean[10];
         int tempRandomNumber;
-        do {
-            tempRandomNumber = Randoms.pickNumberInRange(1, 999);
-        } while (isValidate(tempRandomNumber));
-        this.randomNumber = Integer.toString(tempRandomNumber);
-    }
+        int count = 0;
+        while (count < 3) {
+            tempRandomNumber = Randoms.pickNumberInRange(1, 9);
+            if (checkDuplicate[tempRandomNumber]) {
+                continue;
+            }
 
-    public boolean isValidate(int randomNumber) {
-        int firstNum = randomNumber % 10;
-        randomNumber /= 10;
-        int secondNum = randomNumber % 10;
-        randomNumber /= 10;
-        int thirdNum = randomNumber;
-
-        if (firstNum == 0 || secondNum == 0 || thirdNum == 0)
-            return true;
-
-        if (firstNum != secondNum && secondNum != thirdNum && thirdNum != firstNum) {
-            return false;
-        } else {
-            return true;
+            if (count != 0) {
+                tempRandomNumbers *= 10;
+            }
+            tempRandomNumbers += tempRandomNumber;
+            ++count;
+            checkDuplicate[tempRandomNumber] = true;
         }
+        this.randomNumbers = Integer.toString(tempRandomNumbers);
     }
 
-    public String getRandomNumber() {
-        return randomNumber;
+
+    public String getRandomNumbers() {
+        return randomNumbers;
     }
 
     public boolean compareRandomNumber(String guessNumber) {
@@ -44,7 +41,7 @@ public class Computer {
         for(int i=0; i<guessNumber.length(); ++i) {
             char checkNum = guessNumber.charAt(i);
 
-            if(checkNum == randomNumber.charAt(i)) {
+            if(checkNum == randomNumbers.charAt(i)) {
                 ++strike;
                 continue;
             }
@@ -64,12 +61,12 @@ public class Computer {
     }
 
     public boolean isBall(char checkNum, int index) {
-        for(int i=0; i<randomNumber.length(); ++i) {
+        for(int i = 0; i< randomNumbers.length(); ++i) {
             if(i == index) {
                 continue;
             }
 
-            if(checkNum == randomNumber.charAt(i)) {
+            if(checkNum == randomNumbers.charAt(i)) {
                 return true;
             }
         }
@@ -86,7 +83,7 @@ public class Computer {
                 System.out.print(ball + "볼 ");
             }
             if(strike > 0) {
-                System.out.println(strike + "스트라이크");
+                System.out.print(strike + "스트라이크");
             }
             System.out.print('\n');
         }
