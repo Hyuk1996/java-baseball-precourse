@@ -54,20 +54,11 @@ public class Computer {
             }
         }
 
-        if(ball == 0 && strike == 0) {
-            System.out.println("낫싱");
-            return false;
-        } else if (strike == 3) {
-            System.out.println(strike + "스트라이크");
+        showResult(strike, ball);
+
+        if(strike == 3) {
             return true;
         } else {
-            if(ball > 0) {
-                System.out.print(ball + "볼 ");
-            }
-            if(strike > 0) {
-                System.out.println(strike + "스트라이크");
-            }
-            System.out.print('\n');
             return false;
         }
     }
@@ -85,4 +76,19 @@ public class Computer {
         return false;
     }
 
+    public void showResult(int strike, int ball) {
+        if(ball == 0 && strike == 0) {
+            System.out.println("낫싱");
+        } else if (strike == 3) {
+            System.out.println(strike + "스트라이크");
+        } else {
+            if(ball > 0) {
+                System.out.print(ball + "볼 ");
+            }
+            if(strike > 0) {
+                System.out.println(strike + "스트라이크");
+            }
+            System.out.print('\n');
+        }
+    }
 }
