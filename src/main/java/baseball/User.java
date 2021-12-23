@@ -24,9 +24,9 @@ public class User {
         }
 
         boolean[] duplicateCheckArray = new boolean[10];
-        for(int i = 0; i < guessNumber.length(); ++i) {
+        for (int i = 0; i < guessNumber.length(); ++i) {
             int num = Character.getNumericValue(guessNumber.charAt(i));
-            if(duplicateCheckArray[num]) {
+            if (duplicateCheckArray[num]) {
                 throw new IllegalArgumentException("숫자간 중복이 있습니다.");
             } else {
                 duplicateCheckArray[num] = true;
@@ -41,15 +41,15 @@ public class User {
     }
 
     public void setGaming(String gaming) throws IllegalArgumentException {
-        if(gaming.length() > 1) {
+        if (gaming.length() > 1) {
             throw new IllegalArgumentException("입력문자열이 1보다 깁니다.");
         }
 
-        if(gaming.charAt(0) != '1' && gaming.charAt(0) != '2') {
+        if (gaming.charAt(0) != '1' && gaming.charAt(0) != '2') {
             throw new IllegalArgumentException("입력문자는 1또는 2를 입력해주세요.");
         }
 
-        if(gaming.charAt(0) == '2') {
+        if (gaming.charAt(0) == '2') {
             this.isGaming = false;
         }
     }

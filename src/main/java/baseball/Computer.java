@@ -38,22 +38,22 @@ public class Computer {
         int strike = 0;
         int ball = 0;
 
-        for(int i=0; i<guessNumber.length(); ++i) {
+        for (int i = 0; i < guessNumber.length(); ++i) {
             char checkNum = guessNumber.charAt(i);
 
-            if(checkNum == randomNumbers.charAt(i)) {
+            if (checkNum == randomNumbers.charAt(i)) {
                 ++strike;
                 continue;
             }
 
-            if(isBall(checkNum, i)) {
+            if (isBall(checkNum, i)) {
                 ++ball;
             }
         }
 
         showResult(strike, ball);
 
-        if(strike == 3) {
+        if (strike == 3) {
             return true;
         } else {
             return false;
@@ -61,12 +61,12 @@ public class Computer {
     }
 
     public boolean isBall(char checkNum, int index) {
-        for(int i = 0; i< randomNumbers.length(); ++i) {
-            if(i == index) {
+        for (int i = 0; i < randomNumbers.length(); ++i) {
+            if (i == index) {
                 continue;
             }
 
-            if(checkNum == randomNumbers.charAt(i)) {
+            if (checkNum == randomNumbers.charAt(i)) {
                 return true;
             }
         }
@@ -74,15 +74,15 @@ public class Computer {
     }
 
     public void showResult(int strike, int ball) {
-        if(ball == 0 && strike == 0) {
+        if (ball == 0 && strike == 0) {
             System.out.println("낫싱");
         } else if (strike == 3) {
             System.out.println(strike + "스트라이크");
         } else {
-            if(ball > 0) {
+            if (ball > 0) {
                 System.out.print(ball + "볼 ");
             }
-            if(strike > 0) {
+            if (strike > 0) {
                 System.out.print(strike + "스트라이크");
             }
             System.out.print('\n');
