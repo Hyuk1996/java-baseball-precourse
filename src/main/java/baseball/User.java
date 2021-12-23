@@ -39,4 +39,18 @@ public class User {
     public String getGuessNumber() {
         return guessNumber;
     }
+
+    public void setGaming(String gaming) throws IllegalArgumentException {
+        if(gaming.length() > 1) {
+            throw new IllegalArgumentException("입력문자열이 1보다 깁니다.");
+        }
+
+        if(gaming.charAt(0) != '1' && gaming.charAt(0) != '2') {
+            throw new IllegalArgumentException("입력문자는 1또는 2를 입력해주세요.");
+        }
+
+        if(gaming.charAt(0) == '2') {
+            this.isGaming = false;
+        }
+    }
 }
