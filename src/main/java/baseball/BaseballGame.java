@@ -23,10 +23,12 @@ public class BaseballGame {
 				System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
 
 				user.setGaming(Console.readLine());
+			} else {
+				continue;
+			}
 
-				if (user.isGaming()) {
-					computer.setRandomNumber();
-				}
+			if (user.isGaming()) {
+				computer.setRandomNumber();
 			}
 		}
 	}
