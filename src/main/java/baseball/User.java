@@ -2,27 +2,31 @@ package baseball;
 
 public class User {
 	private String guessNumber;
-	private boolean isGaming;
+	private boolean gaming;
 	private static final String REGEX = "^[0-9]*$";
 
 	public User() {
-		this.isGaming = true;
+		this.gaming = true;
 	}
 
 	public boolean isGaming() {
-		return isGaming;
+		return gaming;
 	}
 
 	public void setGuessNumber(String guessNumber) throws IllegalArgumentException {
+		if (!validateGuessNumber(guessNumber))
+			throw new IllegalArgumentException();
 
+		this.guessNumber = guessNumber;
+	}
 
+	public boolean validateGuessNumber(String guessNumber) {
 		if (guessNumber.length() != 3) {
-			throw new IllegalArgumentException("입력 문자열의 길이가 3이 아닙니다.");
+			return false;
 		}
 		if (!guessNumber.matches(REGEX)) {
-			throw new IllegalArgumentException("입력 문자열이 숫자로 구성되어 있지 않습니다.");
+			return false;
 		}
-
 		boolean[] duplicateCheckArray = new boolean[10];
 		for (int i = 0; i < guessNumber.length(); ++i) {
 			int num = Character.getNumericValue(guessNumber.charAt(i));
@@ -32,8 +36,7 @@ public class User {
 				duplicateCheckArray[num] = true;
 			}
 		}
-
-		this.guessNumber = guessNumber;
+		return true;
 	}
 
 	public String getGuessNumber() {
@@ -41,16 +44,21 @@ public class User {
 	}
 
 	public void setGaming(String gaming) throws IllegalArgumentException {
-		if (gaming.length() > 1) {
-			throw new IllegalArgumentException("입력문자열이 1보다 깁니다.");
-		}
-
-		if (gaming.charAt(0) != '1' && gaming.charAt(0) != '2') {
-			throw new IllegalArgumentException("입력문자는 1또는 2를 입력해주세요.");
-		}
+		if (!validateGaming(gaming))
+			throw new IllegalArgumentException();
 
 		if (gaming.charAt(0) == '2') {
-			this.isGaming = false;
+			this.gaming = false;
 		}
+	}
+
+	public boolean validateGaming(String gaming) {
+		if (gaming.length() > 1) {
+			return false;
+		}
+		if (gaming.charAt(0) != '1' && gaming.charAt(0) != '2') {
+			return false;
+		}
+		return true;
 	}
 }

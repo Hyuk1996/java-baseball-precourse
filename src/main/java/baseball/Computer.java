@@ -41,6 +41,7 @@ public class Computer {
 		for (int i = 0; i < guessNumber.length(); ++i) {
 			char checkNum = guessNumber.charAt(i);
 
+			// 스트라이크 체크
 			if (checkNum == randomNumbers.charAt(i)) {
 				++strike;
 				continue;
